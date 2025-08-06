@@ -1,0 +1,43 @@
+#!/usr/bin/python
+import os
+
+info = """###################################
+#
+#    this file was written by
+#       Joey McMahan
+#
+#      contact:
+#         kimikoluv1996@proton.me
+#      discord
+#         kimikoluv1996
+#   visit github.com/kimikoluv1996 for more
+#     software
+#
+############################################## """
+
+# a script that adds my info to the top of a given file
+# usage: point script to individual file like so ... | add_info --flags /path/to/file |
+     # or to a directory. it will ask if you wish to update all scripts in the
+     # directory
+
+file = "info.txt"
+
+def output(file_to_edit):
+    file_exists = os.path.exists(file_to_edit)
+    if file_exists:
+        with open(file_to_edit, "w") as file:
+            file.write(info)
+            file.close()
+    else:
+        with open(file, "x") as newfile:
+            newfile.write(info)
+            newfile.close()
+
+output("already_existing_txt.txt")
+
+# TO DO:
+# check if there is something in the file, add info to very top, below shebang
+# check if info is already there, if not,
+   # don't write
+# check if info is up to date, if not update
+# more structured info blurb
